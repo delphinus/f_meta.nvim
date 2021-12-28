@@ -50,4 +50,19 @@ print(some_func:vim())  --→ v:lua.require'f_meta'.foo_4_001
 -- You can use this in such vimscript as below
 vim.cmd('autocmd FileType perl call '..some_func:vim()..'()')
 --→ vim.cmd[[autocmd FileType perl call v:lua.require'f_meta'.foo_4_001()]]
+
+-- You can name any func.
+local named_func = f{'some name func', function()
+  print'named!'
+end}
+
+local another_func = f{
+  name = 'this is also available',
+  fn = function() print'named!' end,
+}
+
+local another_another_func = f(
+  'parens also ok',
+  function() print'named!' end  -- Carefully! You cannot use , here.
+)
 ```
