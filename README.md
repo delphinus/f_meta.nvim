@@ -39,6 +39,9 @@ local some_func = f{function()
   print'foobar'
 end}
 
+some_func()  -- You can call this as the ordinary.
+             --→ foobar
+
 print(some_func.name)  --→ foo_4_001
                        -- 4 means line num.
                        -- 001 means the counter to avoid duplications.
