@@ -46,10 +46,9 @@ function M.new(opts)
     local n = name_fn()
     if not M.funcs[n] then
       name = n
-      M.funcs[n] = opts.fn
     end
   end
-  return setmetatable({
+  local self = setmetatable({
     info = info,
     name = name,
     __fn = opts.fn,
@@ -63,6 +62,8 @@ function M.new(opts)
       )
     end,
   })
+  M.funcs[name] = self
+  return self
 end
 
 function M:vim()
