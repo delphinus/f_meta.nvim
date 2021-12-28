@@ -39,15 +39,15 @@ local some_func = f{function()
   print'foobar'
 end}
 
-print(some_func.name)  -- → foo_4_001
+print(some_func.name)  --→ foo_4_001
                        -- 4 means line num.
                        -- 001 means the counter to avoid duplications.
-print(some_func)  -- → anonymous function defined in /path/to/foo.lua at line 4
+print(some_func)  --→ anonymous function defined in /path/to/foo.lua at line 4
 
-print(some_func:lua())  -- → require'f_meta'.foo_4_001
-print(some_func:vim())  -- → v:lua.require'f_meta'.foo_4_001
+print(some_func:lua())  --→ require'f_meta'.foo_4_001
+print(some_func:vim())  --→ v:lua.require'f_meta'.foo_4_001
 
 -- You can use this in such vimscript as below
 vim.cmd('autocmd FileType perl call '..some_func:vim()..'()')
--- → vim.cmd[[autocmd FileType perl call v:lua.require'f_meta'.foo_4_001()]]
+--→ vim.cmd[[autocmd FileType perl call v:lua.require'f_meta'.foo_4_001()]]
 ```
