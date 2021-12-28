@@ -56,7 +56,7 @@ function M.new(opts)
     __call = opts.fn,
     __index = M,
     __tostring = function()
-      return ('anonymous function defined in %s:%d'):format(
+      return ('anonymous function defined in %s at line %d'):format(
         info.short_src,
         info.currentline
       )
